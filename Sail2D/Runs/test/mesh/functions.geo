@@ -12,6 +12,24 @@ Function makeCircle//in: RR
 		ll[]+=ce;
 	EndFor
 Return
+Function makeSquare//in: dim,center[],cl,z
+	//out: sql[]
+	points[]={};
+	Point(ce++)={center[0]+dim/2,center[1]+dim/2,z,cl};points[]+=ce;
+	Point(ce++)={center[0]+dim/2,center[1]-dim/2,z,cl};points[]+=ce;
+	Point(ce++)={center[0]-dim/2,center[1]-dim/2,z,cl};points[]+=ce;
+	Point(ce++)={center[0]-dim/2,center[1]+dim/2,z,cl};points[]+=ce;
+	sql[]={};
+	Line(ce++)={points[0],points[1]};sql[]+=ce;
+	Line(ce++)={points[1],points[2]};sql[]+=ce;
+	Line(ce++)={points[2],points[3]};sql[]+=ce;
+	Line(ce++)={points[3],points[0]};sql[]+=ce;
+Return
+Function rotatePoints2D//in: points[],rc[],angle
+	Rotate {{0,0,1}, {rc[0],rc[1],0}, angle} {
+ 		Point{points[]};
+	}
+Return
 Function autoLineLoop
 	//in: lines[]
 	//out: ce (line loop), lines[] (signs changed)
