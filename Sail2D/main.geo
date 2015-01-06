@@ -36,9 +36,10 @@ BLEXT = 0.1;//factor of chord, length of bl extending beyond edges.
 BLCELLS = 20;
 BLPROG = 1.2;
 EXTCELLS = 20;//
-EXTPROG = 1.2;
-WINGCELLS = 50;
-WINGBUMP = 0.25;
+EXTPROG = 1.0;
+WINGCELLS = 75;
+WINGBUMP = 0.1;
+WINGPROG = 1.0;
 DZ = 0.1*BASEDIM;//extrusion length
 
 //PREPROCESSED VARIABLES
@@ -48,6 +49,13 @@ NE = #CHORDS[];//number of elements
 
 //START SCRIPT
 ce=0;//initialize the current entity counter.
+
+//Boundary conditions
+VOLUMES[]={};
+WINGS[]={};
+TUNNEL[]={};
+INLET[]={};
+OUTLET[]={};
 
 //BOUNDING BOX
 dim=BBDIM;center[]={0,0,0};z=0;cl=BBCL;Call makeSquare;
@@ -154,7 +162,8 @@ For i In {0:NE-1}
 	Transfinite Line{teextlines[],leextlines[]} = EXTCELLS+1 Using Progression EXTPROG;
 	Transfinite Line{topblvertlines[],bottomblvertlines[]} = BLCELLS+1;
 	Transfinite Line{topblvertlines[{1:2}],bottomblvertlines[{1:2}]} = BLCELLS+1 Using Progression BLPROG;
-	Transfinite Line{blsplinelines[],splineline} = WINGCELLS+1 Using Bump WINGBUMP;
+	//Transfinite Line{blsplinelines[],splineline} = WINGCELLS+1 Using Bump WINGBUMP;
+	Transfinite Line{blsplinelines[],splineline} = WINGCELLS+1 Using Progression WINGPROG;
 
 	//external bl loops.
 	lines[]={leextlines[0],blsplinelines[0],teextlines[0],
@@ -169,31 +178,49 @@ For i In {0:NE-1}
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
 	lines[] = {leextlines[1],bottomblvertlines[1],leextlines[2],bottomblvertlines[0]};
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
 	//te surfaces
 	lines[] = {teextlines[0],topblvertlines[2],teextlines[1],topblvertlines[3]};
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
 	lines[] = {teextlines[1],bottomblvertlines[2],teextlines[2],bottomblvertlines[3]};
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
 	//wing surfaces
 	lines[] = {splineline,topblvertlines[1],blsplinelines[0],topblvertlines[2]};
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
+	WINGS[]+=surf[0];
 	lines[] = {splineline,bottomblvertlines[1],blsplinelines[1],bottomblvertlines[2]};
 	Call autoLineLoop;
 	Call PSS;
 	b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+	VOLUMES[]+=vol;
+	WINGS[]+=surf[0];
 EndFor
 
 //Surface from bls to boundary.
 Plane Surface(ce++)={bbloop,blloops[]};
 Recombine Surface{ce};
 b=ce;l[]={0,0,DZ};c=1;p=1;Call extrude;
+VOLUMES[]+=vol;
+INLET[]+=surf[2];
+OUTLET[]+=surf[0];
+TUNNEL[]+=surf[{1,3}];
+
+Physical Surface("wings") = WINGS[];
+Physical Surface("inlet") = INLET[];
+Physical Surface("outlet") = OUTLET[];
+Physical Surface("tunnel") = TUNNEL[];
+Physical Volume("interior") = VOLUMES[];
