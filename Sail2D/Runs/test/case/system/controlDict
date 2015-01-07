@@ -46,4 +46,28 @@ timePrecision   6;
 runTimeModifiable true;
 
 
+libs
+(
+    "libOpenFOAM.so"
+    "libforces.so"
+);
+
+functions
+{
+    wings
+    {
+        patches             (wings);
+		CofR 		    (0 0 0); //Origin for moment calculations
+        outputControl timeStep;
+        outputInterval 5;
+        type forces;
+        functionObjectLibs ("libforces.so");
+        pName p;
+        UName U;
+        rhoName rhoInf;
+        rhoInf 1.18;
+        log true;
+    }
+}
+
 // ************************************************************************* //

@@ -24,7 +24,7 @@ else:
 	runDir = "Runs/"+runName
 	caseDir = "Cases/"+caseName
 	meshDir = "Meshes/"+meshName
-	# Make run directory.	
+	# Make run directory.
 	if not os.path.exists(runDir):
  		os.makedirs(runDir)
  	else:
@@ -82,3 +82,7 @@ addBoundary(boundaryFileName,"wings","wall","wall",startFace,0)
 changeBoundaryType(boundaryFileName,"tunnel","wall","wall")
 changeBoundaryType(boundaryFileName,"defaultFaces","empty","empty")
 os.system("createBaffles -case "+newCaseDir+" -overwrite -dict system/baffleDict > "+newCaseDir+"/../baffleLog")
+
+# Run the case!
+os.system("simpleFoam -case "+newCaseDir+" > "+newCaseDir+"/log")
+

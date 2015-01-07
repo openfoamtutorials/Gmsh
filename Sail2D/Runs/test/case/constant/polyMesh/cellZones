@@ -21,7 +21,7 @@ interior
 {
     type cellZone;
 cellLabels      List<label> 
-28259
+28256
 (
 0
 1
@@ -28279,9 +28279,6 @@ cellLabels      List<label>
 28253
 28254
 28255
-28256
-28257
-28258
 )
 ;
 }

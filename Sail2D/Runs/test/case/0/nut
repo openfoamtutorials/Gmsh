@@ -24,6 +24,9 @@ boundaryField
     wings
     {
         type            nutUSpaldingWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
         value           uniform 0;
     }
     outlet
@@ -35,6 +38,9 @@ boundaryField
     tunnel
     {
         type            nutUSpaldingWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
         value           uniform 0;
     }
     inlet

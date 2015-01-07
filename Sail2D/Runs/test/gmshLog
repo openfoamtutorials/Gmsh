@@ -1,5 +1,5 @@
 Info    : Running 'gmsh -3 Runs/test/mesh/main.geo' [Gmsh 2.8.3, 1 node, max. 4 threads]
-Info    : Started on Tue Jan  6 21:03:35 2015
+Info    : Started on Wed Jan  7 02:31:58 2015
 Info    : Reading 'Runs/test/mesh/main.geo'...
 Info    : Reading 'Runs/test/mesh/functions.geo'...
 Info    : Done reading 'Runs/test/mesh/functions.geo'
@@ -155,17 +155,17 @@ Info    : Meshing curve 180191 (extruded)
 Info    : Meshing curve 180192 (extruded)
 Info    : Meshing curve 180196 (extruded)
 Info    : Meshing curve 180200 (extruded)
-Info    : Done meshing 1D (0.02021 s)
+Info    : Done meshing 1D (0.020551 s)
 Info    : Meshing 2D...
 Info    : Meshing surface 47 (transfinite)
-Info    : Meshing surface 56 (extruded)
 Info    : Meshing surface 60 (extruded)
+Info    : Meshing surface 56 (extruded)
 Info    : Meshing surface 64 (extruded)
 Info    : Meshing surface 68 (extruded)
 Info    : Meshing surface 69 (extruded)
 Info    : Meshing surface 10049 (transfinite)
-Info    : Meshing surface 10062 (extruded)
 Info    : Meshing surface 10066 (extruded)
+Info    : Meshing surface 10062 (extruded)
 Info    : Meshing surface 10070 (extruded)
 Info    : Meshing surface 10071 (extruded)
 Info    : Meshing surface 20051 (transfinite)
@@ -251,28 +251,31 @@ Info    : Meshing surface 180201 (extruded)
 Info    : Meshing surface 180205 (extruded)
 Info    : Meshing surface 180326 (extruded)
 Info    : Blossom: 44453 internal 1010 closed
-Info    : BEFORE OPTIMIZATION : 14986 quads   30 invalid quads  101 quads with Q < 0.1 Avg Q =  6.04101E-01 Min -3.43822E-01
-Info    : IN OPTIMIZATION : 14465 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.42547E-01 Min  2.62013E-14
-Info    : IN OPTIMIZATION : 14462 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.50183E-01 Min  2.62013E-14
-Info    : IN OPTIMIZATION : 14457 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.52800E-01 Min  2.62013E-14
-Info    : IN OPTIMIZATION : 14455 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.53876E-01 Min  2.62013E-14
-Info    : IN OPTIMIZATION : 14455 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.54531E-01 Min  2.62013E-14
-Info    : IN OPTIMIZATION : 14459 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.54698E-01 Min  1.16684E-01
-Info    : Blossom recombination algorithm completed (1.77214 s)
-Info    : AFTER OPTIMIZATION : 14459 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.55040E-01 Min  1.26219E-01
-Info    : Meshing surface 10071 (extruded)
+Info    : BEFORE OPTIMIZATION : 14986 quads   31 invalid quads  102 quads with Q < 0.1 Avg Q =  6.04032E-01 Min -3.43822E-01
+Info    : IN OPTIMIZATION : 14462 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.42959E-01 Min  2.62013E-14
+Info    : IN OPTIMIZATION : 14459 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.50548E-01 Min  2.62013E-14
+Info    : IN OPTIMIZATION : 14454 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.53114E-01 Min  2.62013E-14
+Info    : IN OPTIMIZATION : 14452 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.54167E-01 Min  2.62013E-14
+Info    : IN OPTIMIZATION : 14452 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.54803E-01 Min  2.62013E-14
+Info    : IN OPTIMIZATION : 14456 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.54990E-01 Min  1.21186E-01
+Info    : Blossom recombination algorithm completed (1.81117 s)
+Info    : AFTER OPTIMIZATION : 14456 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.55302E-01 Min  1.27177E-01
 Info    : Meshing surface 20073 (extruded)
 Info    : Meshing surface 30075 (extruded)
 Info    : Meshing surface 69 (extruded)
+Info    : Meshing surface 10071 (extruded)
 Info    : Meshing surface 40077 (extruded)
 Info    : Meshing surface 50079 (extruded)
-Info    : Meshing surface 90123 (extruded)
 Info    : Meshing surface 100125 (extruded)
 Info    : Meshing surface 110127 (extruded)
+Info    : Meshing surface 120165 (extruded)
+Info    : Meshing surface 130167 (extruded)
+Info    : Meshing surface 140169 (extruded)
+Info    : Meshing surface 150171 (extruded)
 Info    : Meshing surface 160173 (extruded)
 Info    : Meshing surface 170175 (extruded)
 Info    : Meshing surface 180326 (extruded)
-Info    : Done meshing 2D (2.14038 s)
+Info    : Done meshing 2D (2.17949 s)
 Info    : Meshing 3D...
 Info    : Meshing volume 1 (extruded)
 Info    : Meshing volume 2 (extruded)
@@ -293,8 +296,8 @@ Info    : Meshing volume 16 (extruded)
 Info    : Meshing volume 17 (extruded)
 Info    : Meshing volume 18 (extruded)
 Info    : Meshing volume 19 (extruded)
-Info    : Done meshing 3D (0.063794 s)
-Info    : 56636 vertices 89718 elements
+Info    : Done meshing 3D (0.061534 s)
+Info    : 56630 vertices 89709 elements
 Info    : Writing 'Runs/test/mesh/main.msh'...
 Info    : Done writing 'Runs/test/mesh/main.msh'
-Info    : Stopped on Tue Jan  6 21:03:37 2015
+Info    : Stopped on Wed Jan  7 02:32:01 2015

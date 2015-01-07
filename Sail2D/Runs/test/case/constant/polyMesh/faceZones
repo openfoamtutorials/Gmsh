@@ -30,6 +30,12 @@ baffleFaces
 faceLabels      List<label> 
 450
 (
+56247
+56248
+56249
+56250
+56251
+56252
 56253
 56254
 56255
@@ -474,12 +480,6 @@ faceLabels      List<label>
 56694
 56695
 56696
-56697
-56698
-56699
-56700
-56701
-56702
 )
 ;
 flipMap         List<bool> 

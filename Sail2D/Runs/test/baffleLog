@@ -7,10 +7,10 @@
 \*---------------------------------------------------------------------------*/
 Build  : 2.3.0-f5222ca19ce6
 Exec   : createBaffles -case Runs/test/case -overwrite -dict system/baffleDict
-Date   : Jan 06 2015
-Time   : 21:03:38
+Date   : Jan 07 2015
+Time   : 02:32:02
 Host   : "lordvon-XPS-8300"
-PID    : 1873
+PID    : 12443
 Case   : Runs/test/case
 nProcs : 1
 sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
