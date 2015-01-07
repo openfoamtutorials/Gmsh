@@ -23,22 +23,24 @@ boundaryField
     inlet
     {
         type            freestream;
-        freestreamValue uniform 0.14;
+        freestreamValue $internalField;
     }
-
     outlet
     {
         type            freestream;
-        freestreamValue uniform 0.14;
+        freestreamValue $internalField;
     }
-
-    walls
+    tunnel
     {
         type            nutUSpaldingWallFunction;
         value           uniform 0;
     }
-
-    frontAndBack
+    wings
+    {
+        type            nutUSpaldingWallFunction;
+        value           uniform 0;
+    }
+    defaultFaces
     {
         type            empty;
     }

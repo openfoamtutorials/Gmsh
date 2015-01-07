@@ -10,6 +10,7 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
+    location    "0";
     object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -20,25 +21,27 @@ internalField   uniform 0;
 
 boundaryField
 {
-    inlet
+    wings
     {
-        type            freestreamPressure;
+        type            zeroGradient;
     }
-
     outlet
     {
         type            freestreamPressure;
     }
-
-    walls
+    tunnel
     {
         type            zeroGradient;
     }
-
-    frontAndBack
+    inlet
+    {
+        type            freestreamPressure;
+    }
+    defaultFaces
     {
         type            empty;
     }
 }
+
 
 // ************************************************************************* //

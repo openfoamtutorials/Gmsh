@@ -19,37 +19,40 @@ FoamFile
 (
     wings
     {
-        type            patch;
-        physicalType    patch;
-        nFaces          0;
-        startFace       56440;
+        type            wall;
+        physicalType    wall;
+        inGroups        1(wall);
+        nFaces          450;
+        startFace       56253;
     }
     outlet
     {
         type            patch;
         physicalType    patch;
         nFaces          20;
-        startFace       56440;
+        startFace       56703;
     }
     tunnel
     {
-        type            patch;
-        physicalType    patch;
+        type            wall;
+        physicalType    wall;
+        inGroups        1(wall);
         nFaces          40;
-        startFace       56460;
+        startFace       56723;
     }
     inlet
     {
         type            patch;
         physicalType    patch;
         nFaces          20;
-        startFace       56500;
+        startFace       56763;
     }
     defaultFaces
     {
-        type            patch;
-        nFaces          56480;
-        startFace       56520;
+        type            empty;
+        inGroups        1(empty);
+        nFaces          56518;
+        startFace       56783;
     }
 )
 

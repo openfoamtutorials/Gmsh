@@ -24,18 +24,19 @@ boundaryField
     {
         type            freestreamPressure;
     }
-
     outlet
     {
         type            freestreamPressure;
     }
-
-    walls
+    tunnel
     {
         type            zeroGradient;
     }
-
-    frontAndBack
+    wings
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
     {
         type            empty;
     }

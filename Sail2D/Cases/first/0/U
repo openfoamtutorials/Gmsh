@@ -23,15 +23,13 @@ boundaryField
     inlet
     {
         type            freestream;
-        freestreamValue uniform (20 0 0);
+        freestreamValue $internalField;
     }
-
     outlet
     {
         type            freestream;
-        freestreamValue uniform (20 0 0);
+        freestreamValue $internalField;
     }
-
     tunnel
     {
         type            fixedValue;
@@ -42,8 +40,7 @@ boundaryField
         type            fixedValue;
         value           uniform (0 0 0);
     }
-
-    frontAndBack
+    defaultFaces
     {
         type            empty;
     }
