@@ -31,19 +31,20 @@ LEY[] = {0,0,-.2*BASEDIM};
 //GRID PARAMETERS
 SURFACECL = 0.02;//characteristic length on the surfaces of the airfoils, factor of chord.
 BBCL = 0.05*BBDIM;//bounding box characteristic length.
-BLHEIGHT = 0.05;//factor of chord
-BLEXT = 0.1;//factor of chord, length of bl extending beyond edges.
-BLCELLS = 20;
+BLHEIGHT = 0.06;//factor of chord
+BLCELLS = 15;
 BLPROG = 1.2;
-EXTCELLS = 20;//
-EXTPROG = 1.0;
 WINGCELLS = 75;
-WINGBUMP = 0.1;
 WINGPROG = 1.0;
 DZ = 0.1*BASEDIM;//extrusion length
+EXTPROG = 1.1;
 
 //PREPROCESSED VARIABLES
 NE = #CHORDS[];//number of elements
+//lf = 1/WINGCELLS;r=EXTPROG;n=EXTCELLS+1;Call GP_length_reverse;
+l0=BLHEIGHT/BLCELLS;lf=1/WINGCELLS;r=EXTPROG;Call GP_threshold;
+BLEXT = lt;//factor of chord, length of bl extending beyond edges.
+EXTCELLS = n;
 
 
 
@@ -159,7 +160,7 @@ For i In {0:NE-1}
 	BSpline(ce++)={leblpoints[4],bottomblsplinepoints[],teblpoints[4]};blsplinelines[]+=ce;
 
 	//gridding
-	Transfinite Line{teextlines[],leextlines[]} = EXTCELLS+1 Using Progression EXTPROG;
+	Transfinite Line{teextlines[],leextlines[]} = EXTCELLS+1 Using Progression 1/EXTPROG;
 	Transfinite Line{topblvertlines[],bottomblvertlines[]} = BLCELLS+1;
 	Transfinite Line{topblvertlines[{1:2}],bottomblvertlines[{1:2}]} = BLCELLS+1 Using Progression BLPROG;
 	//Transfinite Line{blsplinelines[],splineline} = WINGCELLS+1 Using Bump WINGBUMP;

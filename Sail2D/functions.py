@@ -1,6 +1,15 @@
 """
 
 """
+import os
+import sys
+
+def properChdir(mydir):
+	if (os.path.isdir(mydir)):
+		os.chdir(mydir)
+	else:
+		print "Directory not found ("+mydir+")! Exiting."
+		sys.exit()
 
 def is_integer(string):
     try:

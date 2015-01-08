@@ -177,3 +177,39 @@ Function extrude//From b=;l[]=;c=;p=; Get surf[];vol;newbase;
 	surf[]=ids[{2:#ids[]-1}];
 	ce+=10000;
 Return
+Function GP_length
+	//in: r: growth rate,l0: initial segment length,n: number of terms
+	//out: lt: total length
+	If (r==1)
+		lt = l0*n;
+	EndIf
+	If (r>1)
+		lt = l0*((1-r^n)/(1-r));
+	EndIf
+Return
+Function GP_length_reverse
+	//in: r: growth rate, lf: final segment length, n: number of terms
+	//out: lt: total length
+	l0 = lf/r^(n-1);
+	If (r==1)
+		lt = l0*n;
+	EndIf
+	If (r>1)
+		lt = l0*((1-r^n)/(1-r));
+	EndIf
+Return
+Function GP_threshold
+	//in: l0: first segment length, lf: threshold final segment length, r: growth rate, max: max number of loops 
+	//out: n: number of segments, lt: final length
+	max = 100;
+	n = 1;
+	seg = l0;
+	lt = seg;
+	For k In {0:100}
+		If (seg < lf)
+			n += 1;
+			seg = seg*r;
+			lt += seg;
+		EndIf
+	EndFor
+Return

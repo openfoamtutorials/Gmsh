@@ -1,0 +1,47 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.0-f5222ca19ce6
+Exec   : createBaffles -case Runs/flatplate_0/case -overwrite -dict system/baffleDict
+Date   : Jan 08 2015
+Time   : 14:31:49
+Host   : "lordvon-XPS-8300"
+PID    : 4207
+Case   : Runs/flatplate_0/case
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Disallowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading baffle criteria from createBafflesDict
+
+Not converting faces on non-coupled patches.
+
+Reading geometric fields
+
+Reading volScalarField p
+Reading volScalarField nuTilda
+Reading volScalarField nut
+Reading volVectorField U
+Created zone baffleFaces at index 1 with 75 faces
+Patch 'wings' already exists.  Only moving patch faces - type will remain the same
+Patch 'wings' already exists.  Only moving patch faces - type will remain the same
+Converted 75 faces into boundary faces in patches 1(wings)
+
+--> FOAM Warning : 
+    From function createBaffles
+    in file createBaffles.C at line 773
+    Setting field on boundary faces to zero.
+You might have to edit these fields.
+Writing mesh to 0
+End
+

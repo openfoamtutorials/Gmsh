@@ -1,0 +1,79 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.0-f5222ca19ce6
+Exec   : gmshToFoam -case Runs/flatplate_0_flip/case Runs/flatplate_0_flip/mesh/main.msh
+Date   : Jan 08 2015
+Time   : 18:08:11
+Host   : "lordvon-XPS-8300"
+PID    : 5975
+Case   : Runs/flatplate_0_flip/case
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Disallowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Starting to read mesh format at line 2
+Read format version 2.2  ascii 0
+
+Starting to read physical names at line 5
+Physical names:5
+    Surface 1	wings
+    Surface 2	inlet
+    Surface 3	outlet
+    Surface 4	tunnel
+    Volume 5	interior
+
+Starting to read points at line 13
+Vertices to be read:16064
+Vertices read:16064
+
+Starting to read cells at line 16080
+Cells to be read:8146
+
+Mapping region 1 to Foam patch 0
+Mapping region 3 to Foam patch 1
+Mapping region 4 to Foam patch 2
+Mapping region 2 to Foam patch 3
+Mapping region 5 to Foam cellZone 0
+Cells:
+    total:7991
+    hex  :7991
+    prism:0
+    pyr  :0
+    tet  :0
+
+CellZones:
+Zone	Size
+    0	7991
+
+Skipping tag  at line 24229
+Patch 0 gets name wings
+Patch 1 gets name outlet
+Patch 2 gets name tunnel
+Patch 3 gets name inlet
+
+--> FOAM Warning : 
+    From function polyMesh::polyMesh(... construct from shapes...)
+    in file meshes/polyMesh/polyMeshFromShapeMesh.C at line 627
+    Found 16062 undefined faces in mesh; adding to default patch.
+Finding faces of patch 0
+Finding faces of patch 1
+Finding faces of patch 2
+Finding faces of patch 3
+
+FaceZones:
+Zone	Size
+    0	75
+
+Writing zone 0 to cellZone interior and cellSet
+Writing zone 0 to faceZone wings and faceSet
+End
+

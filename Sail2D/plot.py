@@ -7,20 +7,6 @@
 import os
 import sys
 
-RUNNAME = sys.argv[1]
-PLOTMODE = sys.argv[2]
-if PLOTMODE == "f" or PLOTMODE == "c":
-	if len(sys.argv) < 4:	
-		print "Be sure to supply depth when requesting forces or coefficients. Exiting."
-		sys.exit()
-	else:
-		DEPTH = float(sys.argv[3])
-	if PLOTMODE=="c" and len(sys.argv) < 5:
-		print "Be sure to supply both chord and depth when requesting coefficients. Exiting."
-		sys.exit()
-	else:
-		CHORD = float(sys.argv[4])
-
 execfile('functions.py')
 def cleanString(string):
 	string = string.replace("(","")
@@ -56,10 +42,50 @@ def processForceFile(path):
 			dct = processForceLine(line)
 			ret.append(dct)
 	return ret
+def readDensity(path):
+	"""
+	path: the file path of the transportProperties file.
+	"""
+	lines = getLinesFromFile(path)
+	density = None
+	for line in rlines:
+		if line.count("rho") > 0:
+			line = line.replace(";","")
+			density = float(line.split()[-1])
+			break
+	return density
+
+def readKinematicViscosity(path):
+	"""
+	path: the file path of the transportProperties file.
+	"""
+	lines = getLinesFromFile(path)
+	nu = None
+	for line in rlines:
+		if line.count("nu") > 0 and line.count("nu0") == 0:
+			line = line.replace(";","")
+			nu = float(line.split()[-1])
+			break
+	return nu
+
+RUNNAME = sys.argv[1]
+PLOTMODE = sys.argv[2]
+if PLOTMODE == "f" or PLOTMODE == "c":
+	if len(sys.argv) < 4:	
+		print "Be sure to supply depth when requesting forces or coefficients. Exiting."
+		sys.exit()
+	else:
+		DEPTH = float(sys.argv[3])
+	if PLOTMODE=="c" and len(sys.argv) < 5:
+		print "Be sure to supply both chord and depth when requesting coefficients. Exiting."
+		sys.exit()
+	else:
+		CHORD = float(sys.argv[4])
 
 
 caseDir = "Runs/"+RUNNAME+"/case"
-os.chdir(caseDir)
+properChdir(caseDir)
+
 if PLOTMODE == "r":
 	os.system("./plotResiduals")
 elif PLOTMODE == "f" or PLOTMODE == "c":
@@ -111,7 +137,12 @@ elif PLOTMODE == "f" or PLOTMODE == "c":
 			sys.exit()
 		dynamicPressure = 0.5*density*velocity**2
 		referenceArea = CHORD*DEPTH
+		print "Density: "+str(density)
+		print "Velocity: "+str(velocity)
+		print "Dynamic Pressure: "+str(dynamicPressure)
+		print "Reference Area: "+str(referenceArea)
 		norm = 1.0/(dynamicPressure*referenceArea)
+		print "Normalization Quantity: "+str(norm)
 		# Now write
 		if not os.path.exists("coefficients"):
  			os.makedirs("coefficients")
