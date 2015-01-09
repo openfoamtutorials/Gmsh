@@ -31,8 +31,7 @@ LEY[] = {0,0,-.2*BASEDIM};
 //GRID PARAMETERS
 SURFACECL = 0.02;//characteristic length on the surfaces of the airfoils, factor of chord.
 BBCL = 0.05*BBDIM;//bounding box characteristic length.
-BLHEIGHT = 0.06;//factor of chord
-BLCELLS = 15;
+BLHEIGHT = 0.07;//factor of chord
 BLPROG = 1.2;
 WINGCELLS = 75;
 WINGPROG = 1.0;
@@ -41,11 +40,16 @@ EXTPROG = 1.1;
 
 //PREPROCESSED VARIABLES
 NE = #CHORDS[];//number of elements
+
+wingsegment = 1/WINGCELLS;
+r=1/BLPROG;l0=wingsegment;lt=BLHEIGHT;Call GP_threshold_cells;
+BLCELLS = n;
+
 //lf = 1/WINGCELLS;r=EXTPROG;n=EXTCELLS+1;Call GP_length_reverse;
-l0=BLHEIGHT/BLCELLS;lf=1/WINGCELLS;r=EXTPROG;Call GP_threshold;
+
+l0=BLHEIGHT/BLCELLS;lf=wingsegment;r=EXTPROG;Call GP_threshold;
 BLEXT = lt;//factor of chord, length of bl extending beyond edges.
 EXTCELLS = n;
-
 
 
 //START SCRIPT

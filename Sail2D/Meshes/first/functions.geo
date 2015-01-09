@@ -205,11 +205,26 @@ Function GP_threshold
 	n = 1;
 	seg = l0;
 	lt = seg;
-	For k In {0:100}
+	For k In {0:max}
 		If (seg < lf)
 			n += 1;
-			seg = seg*r;
+			seg *= r;
 			lt += seg;
+		EndIf
+	EndFor
+Return
+Function GP_threshold_cells
+	//in: lt: final total length (threshold), l0: first segment length, r: growth rate, max: max number of loops 
+	//out: n: number of segments, lf: final segment length
+	max = 100;
+	n = 1;
+	seg = l0;
+	mylt = seg;
+	For k In {0:max}
+		If (mylt < lt)
+			n += 1;
+			seg *= r;
+			mylt += seg;
 		EndIf
 	EndFor
 Return

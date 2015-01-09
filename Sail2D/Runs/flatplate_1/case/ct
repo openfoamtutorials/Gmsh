@@ -1,6 +1,0 @@
-#!/bin/bash
-# 'ct' stands for 'change tolerance'
-
-OO=$1 # order (1e-$OO)
-
-sed -i "0,/myTolerance.*/{s/myTolerance.*/myTolerance\t1e-$OO;/}" system/fvSolution
