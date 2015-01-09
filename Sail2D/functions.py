@@ -130,3 +130,47 @@ def getNumberOfFaces(casePath):
 	
 	os.remove(tmpout)
 	return nfaces
+
+
+
+def readVelocity(path):
+	"""
+	path: the file path of the U file.
+	"""
+	lines = getLinesFromFile(path)
+	velocity = None
+	for line in lines:
+		if line.count("internalField") > 0:
+			line = line.replace("(","")
+			line = line.replace(")","")
+			line = line.replace(";","")
+			words = line.split()
+			velocity = float(words[2])
+			break
+	return velocity
+
+def readDensity(path):
+	"""
+	path: the file path of the transportProperties file.
+	"""
+	lines = getLinesFromFile(path)
+	density = None
+	for line in lines:
+		if line.count("rho") > 0:
+			line = line.replace(";","")
+			density = float(line.split()[-1])
+			break
+	return density
+
+def readKinematicViscosity(path):
+	"""
+	path: the file path of the transportProperties file.
+	"""
+	lines = getLinesFromFile(path)
+	nu = None
+	for line in lines:
+		if line.count("nu") > 0 and line.count("nu0") == 0:
+			line = line.replace(";","")
+			nu = float(line.split()[-1])
+			break
+	return nu

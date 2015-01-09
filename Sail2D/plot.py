@@ -42,31 +42,7 @@ def processForceFile(path):
 			dct = processForceLine(line)
 			ret.append(dct)
 	return ret
-def readDensity(path):
-	"""
-	path: the file path of the transportProperties file.
-	"""
-	lines = getLinesFromFile(path)
-	density = None
-	for line in rlines:
-		if line.count("rho") > 0:
-			line = line.replace(";","")
-			density = float(line.split()[-1])
-			break
-	return density
 
-def readKinematicViscosity(path):
-	"""
-	path: the file path of the transportProperties file.
-	"""
-	lines = getLinesFromFile(path)
-	nu = None
-	for line in rlines:
-		if line.count("nu") > 0 and line.count("nu0") == 0:
-			line = line.replace(";","")
-			nu = float(line.split()[-1])
-			break
-	return nu
 
 RUNNAME = sys.argv[1]
 PLOTMODE = sys.argv[2]
@@ -111,38 +87,29 @@ elif PLOTMODE == "f" or PLOTMODE == "c":
 		os.system("./plotForces")
 	if PLOTMODE=="c":
 		#get velocity
-		ulines = getLinesFromFile("0/U")
-		velocity = None
-		for line in ulines:
-			if line.count("internalField") > 0:
-				line = line.replace("(","")
-				line = line.replace(")","")
-				line = line.replace(";","")
-				words = line.split()
-				velocity = float(words[2])
-				break
+		velocity = readVelocity("0/U")
 		if velocity == None:
 			print "Velocity was not read! Exiting."
 			sys.exit()
 		#get density
-		rlines = getLinesFromFile("constant/transportProperties")
-		density = None
-		for line in rlines:
-			if line.count("rho") > 0:
-				line = line.replace(";","")
-				density = float(line.split()[-1])
-				break
+		density = readDensity("constant/transportProperties")
 		if density == None:
 			print "Density was not read! Exiting."
+			sys.exit()
+		#get kinematic viscosity
+		nu = readKinematicViscosity("constant/transportProperties")
+		if nu == None:
+			print "Kinematic vsicosity was not read! Exiting."
 			sys.exit()
 		dynamicPressure = 0.5*density*velocity**2
 		referenceArea = CHORD*DEPTH
 		print "Density: "+str(density)
 		print "Velocity: "+str(velocity)
-		print "Dynamic Pressure: "+str(dynamicPressure)
+		# print "Dynamic Pressure: "+str(dynamicPressure)
 		print "Reference Area: "+str(referenceArea)
 		norm = 1.0/(dynamicPressure*referenceArea)
-		print "Normalization Quantity: "+str(norm)
+		# print "Normalization Quantity: "+str(norm)
+		print "Reynolds number: "+str(velocity*CHORD/nu)
 		# Now write
 		if not os.path.exists("coefficients"):
  			os.makedirs("coefficients")
