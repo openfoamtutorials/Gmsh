@@ -1,0 +1,6 @@
+#!/bin/bash
+# 'cc' stands for 'change Courant no.'
+
+CN=$1
+
+sed -i "0,/maxCo.*/{s/maxCo.*/maxCo\t\t\t$CN;/}" system/controlDict

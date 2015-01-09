@@ -9,6 +9,7 @@
 
 import sys
 import os
+import time
 
 execfile('functions.py')
 def changeAOA(path,aoa):
@@ -45,18 +46,17 @@ def changeWingCells(path,nc):
 	writeToFile(path,lines)
 	return success
 
-if len(sys.argv) < 8:
+if len(sys.argv) < 7:
 	print "You must supply all inputs! Exiting."
 	sys.exit()
 
-BASENAME = sys.argv[1]
-CASENAME = sys.argv[2]
-MESHNAME = sys.argv[3]
+CASENAME = sys.argv[1]
+MESHNAME = sys.argv[2]
+WINGCELLS = sys.argv[3]
 a0 = int(sys.argv[4])
 af = int(sys.argv[5])
 ai = int(sys.argv[6])
 ANGLES = range(a0,af+ai,ai)
-WINGCELLS = sys.argv[7]
 
 MESHFILE = "Meshes/"+MESHNAME+"/main.geo"
 
@@ -64,10 +64,23 @@ success = changeWingCells(MESHFILE,WINGCELLS)
 if not success:
 	print "Wing cell count in mesh could not be changed! Exiting."
 	sys.exit()
+
+BASENAME = CASENAME+"_"+MESHNAME+"_"+str(WINGCELLS)
+performanceFile = open("Runs/"+BASENAME+"_timings","w")
+startTime = time.clock()
+prevTime = startTime
 for angle in ANGLES:
 	print "Working on AOA of "+str(angle)+" degrees"
 	success = changeAOA(MESHFILE,angle)
 	if not success:
 		print "AOA in mesh could not be changed! Exiting."
 		sys.exit()
-	os.system("./run.py "+BASENAME+"_"+str(angle)+"_"+str(WINGCELLS)+" "+CASENAME+" "+MESHNAME)
+	RUNNAME = BASENAME+"_"+str(angle)
+	os.system("./run.py "+RUNNAME+" "+CASENAME+" "+MESHNAME)
+	currentTime = time.clock()
+	f.write("AOA = "+str(angle)+" run time: "+str(currentTime-prevTime)+" seconds\n")
+	prevTime = currentTime
+finishTime = time.clock()
+elapsedTime = finishTime - startTime
+print "Total run time: "+str(elapsedTime)+" seconds"
+performanceFile.close()
