@@ -16,7 +16,7 @@ Include "functions.geo";
 BASEDIM = 1;//m, base dimension so that everything can be scaled according to this number.
 
 //BOUNDARY
-BBDIM = 20*BASEDIM;//Boundaing domain square dimension.
+BBDIM = 21*BASEDIM;//Boundaing domain square dimension.
 
 //AIRFOIL DIMENSIONS
 CHORDS[] = {BASEDIM};
@@ -29,7 +29,7 @@ LEX[] = {-0.25*BASEDIM};
 LEY[] = {0};
 
 //GRID PARAMETERS
-SURFACECL = 0.02;//characteristic length on the surfaces of the airfoils, factor of chord.
+SURFACECL = 0.05;//characteristic length on the surfaces of the airfoils, factor of chord.
 BBCL = 0.05*BBDIM;//bounding box characteristic length.
 BLHEIGHT = 0.07;//factor of chord
 BLPROG = 1.09;

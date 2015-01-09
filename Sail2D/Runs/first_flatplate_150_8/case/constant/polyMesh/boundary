@@ -23,14 +23,14 @@ FoamFile
         physicalType    wall;
         inGroups        1(wall);
         nFaces          300;
-        startFace       27771;
+        startFace       28212;
     }
     outlet
     {
         type            patch;
         physicalType    patch;
         nFaces          20;
-        startFace       28071;
+        startFace       28512;
     }
     tunnel
     {
@@ -38,21 +38,21 @@ FoamFile
         physicalType    wall;
         inGroups        1(wall);
         nFaces          40;
-        startFace       28091;
+        startFace       28532;
     }
     inlet
     {
         type            patch;
         physicalType    patch;
         nFaces          20;
-        startFace       28131;
+        startFace       28572;
     }
     defaultFaces
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          28002;
-        startFace       28151;
+        nFaces          28402;
+        startFace       28592;
     }
 )
 

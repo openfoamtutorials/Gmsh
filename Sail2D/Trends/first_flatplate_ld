@@ -1,0 +1,9 @@
+#!/bin/bash
+
+gnuplot -persist > /dev/null 2>&1 << EOF
+	set title "Lift-to-Drag Ratio vs. Angle of Attack"
+	set xlabel "Angle of Attack (Degrees)"
+	set ylabel "Lift-To-Drag Ratio"
+	plot	"first_flatplate_75" u 1:(\$2/\$3) t "L/D 75" w lines,\
+			"first_flatplate_150" u 1:(\$2/\$3) t "L/D 150" w lines
+EOF

@@ -1,5 +1,5 @@
 Info    : Running 'gmsh -3 Runs/first_flatplate_150_8/mesh/main.geo' [Gmsh 2.8.3, 1 node, max. 4 threads]
-Info    : Started on Fri Jan  9 00:09:00 2015
+Info    : Started on Fri Jan  9 01:28:33 2015
 Info    : Reading 'Runs/first_flatplate_150_8/mesh/main.geo'...
 Info    : Reading 'Runs/first_flatplate_150_8/mesh/functions.geo'...
 Info    : Done reading 'Runs/first_flatplate_150_8/mesh/functions.geo'
@@ -63,18 +63,18 @@ Info    : Meshing curve 60075 (extruded)
 Info    : Meshing curve 60076 (extruded)
 Info    : Meshing curve 60080 (extruded)
 Info    : Meshing curve 60084 (extruded)
-Info    : Done meshing 1D (0.00832 s)
+Info    : Done meshing 1D (0.008364 s)
 Info    : Meshing 2D...
 Info    : Meshing surface 47 (transfinite)
+Info    : Meshing surface 60 (extruded)
 Info    : Meshing surface 56 (extruded)
 Info    : Meshing surface 64 (extruded)
-Info    : Meshing surface 60 (extruded)
-Info    : Meshing surface 68 (extruded)
 Info    : Meshing surface 69 (extruded)
-Info    : Meshing surface 10066 (extruded)
-Info    : Meshing surface 10070 (extruded)
+Info    : Meshing surface 68 (extruded)
 Info    : Meshing surface 10062 (extruded)
 Info    : Meshing surface 10049 (transfinite)
+Info    : Meshing surface 10066 (extruded)
+Info    : Meshing surface 10070 (extruded)
 Info    : Meshing surface 10071 (extruded)
 Info    : Meshing surface 20051 (transfinite)
 Info    : Meshing surface 20060 (extruded)
@@ -100,37 +100,19 @@ Info    : Meshing surface 60081 (extruded)
 Info    : Meshing surface 60085 (extruded)
 Info    : Meshing surface 60089 (extruded)
 Info    : Meshing surface 60130 (extruded)
-Info    : Blossom: 17799 internal 516 closed
-Info    : BEFORE OPTIMIZATION :  6019 quads   13 invalid quads   37 quads with Q < 0.1 Avg Q =  6.00099E-01 Min -1.42529E-01
-Info    : IN OPTIMIZATION :  5824 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.41165E-01 Min  3.33067E-16
-Info    : IN OPTIMIZATION :  5820 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.49746E-01 Min  3.33067E-16
-Info    : IN OPTIMIZATION :  5820 quads    0 invalid quads    1 quads with Q < 0.1 Avg Q =  7.53108E-01 Min  3.33067E-16
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.53806E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.54453E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.54839E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55070E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55266E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55319E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55338E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55378E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55391E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55411E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55432E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55438E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55441E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55443E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55444E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55444E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55444E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55445E-01 Min  0.00000E+00
-Info    : IN OPTIMIZATION :  5824 quads    1 invalid quads    5 quads with Q < 0.1 Avg Q =  7.55445E-01 Min  0.00000E+00
-Info    : Blossom recombination algorithm completed (1.93016 s)
-Info    : AFTER OPTIMIZATION :  5819 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.56094E-01 Min  3.20354E-01
+Info    : Blossom: 18462 internal 516 closed
+Info    : BEFORE OPTIMIZATION :  6240 quads   15 invalid quads   38 quads with Q < 0.1 Avg Q =  6.02091E-01 Min -1.65459E-01
+Info    : IN OPTIMIZATION :  6041 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.43947E-01 Min  2.41323E-01
+Info    : Blossom recombination algorithm completed (0.245523 s)
+Info    : AFTER OPTIMIZATION :  6041 quads    0 invalid quads    0 quads with Q < 0.1 Avg Q =  7.55874E-01 Min  2.43564E-01
+Info    : Meshing surface 30075 (extruded)
+Info    : Meshing surface 69 (extruded)
+Info    : Meshing surface 10071 (extruded)
+Info    : Meshing surface 20073 (extruded)
+Info    : Meshing surface 40077 (extruded)
 Info    : Meshing surface 50079 (extruded)
 Info    : Meshing surface 60130 (extruded)
-Info    : Meshing surface 40077 (extruded)
-Info    : Meshing surface 10071 (extruded)
-Info    : Done meshing 2D (2.07639 s)
+Info    : Done meshing 2D (0.396144 s)
 Info    : Meshing 3D...
 Info    : Meshing volume 1 (extruded)
 Info    : Meshing volume 2 (extruded)
@@ -139,8 +121,8 @@ Info    : Meshing volume 4 (extruded)
 Info    : Meshing volume 5 (extruded)
 Info    : Meshing volume 6 (extruded)
 Info    : Meshing volume 7 (extruded)
-Info    : Done meshing 3D (0.030048 s)
-Info    : 28062 vertices 44373 elements
+Info    : Done meshing 3D (0.036884 s)
+Info    : 28496 vertices 45009 elements
 Info    : Writing 'Runs/first_flatplate_150_8/mesh/main.msh'...
 Info    : Done writing 'Runs/first_flatplate_150_8/mesh/main.msh'
-Info    : Stopped on Fri Jan  9 00:09:02 2015
+Info    : Stopped on Fri Jan  9 01:28:33 2015

@@ -8,9 +8,9 @@
 Build  : 2.3.0-f5222ca19ce6
 Exec   : gmshToFoam -case Runs/first_flatplate_150_8/case Runs/first_flatplate_150_8/mesh/main.msh
 Date   : Jan 09 2015
-Time   : 00:09:02
+Time   : 01:28:33
 Host   : "lordvon-XPS-8300"
-PID    : 16265
+PID    : 18513
 Case   : Runs/first_flatplate_150_8/case
 nProcs : 1
 sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
@@ -32,39 +32,29 @@ Physical names:5
     Volume 5	interior
 
 Starting to read points at line 13
-Vertices to be read:28050
-Vertices read:28050
+Vertices to be read:28484
+Vertices read:28484
 
-Starting to read cells at line 28066
-Cells to be read:14219
+Starting to read cells at line 28500
+Cells to be read:14431
 
 Mapping region 1 to Foam patch 0
 Mapping region 3 to Foam patch 1
 Mapping region 4 to Foam patch 2
 Mapping region 2 to Foam patch 3
 Mapping region 5 to Foam cellZone 0
-Inverting prism 13979
-Inverting prism 13980
-Inverting prism 13981
-Inverting prism 13982
-Inverting prism 13983
-Inverting prism 13984
-Inverting prism 13985
-Inverting prism 13986
-Inverting prism 13987
-Inverting prism 13988
 Cells:
-    total:13989
-    hex  :13979
-    prism:10
+    total:14201
+    hex  :14201
+    prism:0
     pyr  :0
     tet  :0
 
 CellZones:
 Zone	Size
-    0	13989
+    0	14201
 
-Skipping tag  at line 42288
+Skipping tag  at line 42934
 Patch 0 gets name wings
 Patch 1 gets name outlet
 Patch 2 gets name tunnel
@@ -73,7 +63,7 @@ Patch 3 gets name inlet
 --> FOAM Warning : 
     From function polyMesh::polyMesh(... construct from shapes...)
     in file meshes/polyMesh/polyMeshFromShapeMesh.C at line 627
-    Found 28082 undefined faces in mesh; adding to default patch.
+    Found 28482 undefined faces in mesh; adding to default patch.
 Finding faces of patch 0
 Finding faces of patch 1
 Finding faces of patch 2

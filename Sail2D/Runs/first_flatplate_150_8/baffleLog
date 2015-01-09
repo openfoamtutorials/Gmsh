@@ -8,9 +8,9 @@
 Build  : 2.3.0-f5222ca19ce6
 Exec   : createBaffles -case Runs/first_flatplate_150_8/case -overwrite -dict system/baffleDict
 Date   : Jan 09 2015
-Time   : 00:09:03
+Time   : 01:28:34
 Host   : "lordvon-XPS-8300"
-PID    : 16269
+PID    : 18517
 Case   : Runs/first_flatplate_150_8/case
 nProcs : 1
 sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).

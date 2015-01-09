@@ -20,7 +20,7 @@ BBDIM = 20*BASEDIM;//Boundaing domain square dimension.
 
 //AIRFOIL DIMENSIONS
 CHORDS[] = {BASEDIM};
-ANGLES[] = {20*dtr};//angles of attack for each element.
+ANGLES[] = {8*dtr};//angles of attack for each element.
 LEDISTANCES[] = {0.2};//distance from spline point to leading edge, as a factor of the chord.
 TEDISTANCES[] = {0.1};
 LEANGLES[] = {0*dtr};
