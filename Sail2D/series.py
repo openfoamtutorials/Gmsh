@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-# 1: series base name
-# 2: case name
-# 3: mesh name
+# 1: case name
+# 2: mesh name
+# 3: Wing cells
 # 4: first angle (deg)
 # 5: last angle (deg)
 # 6: angle increment (deg)
-# 7: wing cells
 
 import sys
 import os
@@ -78,7 +77,7 @@ for angle in ANGLES:
 	RUNNAME = BASENAME+"_"+str(angle)
 	os.system("./run.py "+RUNNAME+" "+CASENAME+" "+MESHNAME)
 	currentTime = time.clock()
-	f.write("AOA = "+str(angle)+" run time: "+str(currentTime-prevTime)+" seconds\n")
+	performanceFile.write("AOA = "+str(angle)+" run time: "+str(currentTime-prevTime)+" seconds\n")
 	prevTime = currentTime
 finishTime = time.clock()
 elapsedTime = finishTime - startTime

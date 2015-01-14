@@ -1,0 +1,4 @@
+#!/bin/bash
+
+endTime=$1
+sed -i "0,/endTime.*/{s/endTime.*/endTime\t\t\t$endTime;/}" system/controlDict

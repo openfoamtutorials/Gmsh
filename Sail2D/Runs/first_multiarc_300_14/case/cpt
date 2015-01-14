@@ -1,0 +1,6 @@
+#!/bin/bash
+# 'cpt' stands for 'change pressure tolerance'
+
+OO=$1 # order (1e-$OO)
+
+sed -i "0,/myPTolerance.*/{s/myPTolerance.*/myPTolerance\t1e-$OO;/}" system/fvSolution
